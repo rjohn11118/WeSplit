@@ -13,7 +13,7 @@ struct ContentView: View {
     @State private var numberOfPeople = 2
     @State private var tipPercentage = 20
     @FocusState private var amountIsFocused: Bool
-
+    @State private var userIsPoor = false
     
     let tipPercentages = [10, 15, 20, 25, 0]
     
@@ -65,6 +65,10 @@ struct ContentView: View {
                 
                 Section {
                     Text(totalPerPerson, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                        .foregroundColor(tipPercentage == 0 ? .red : .black)
+
+
+                    
                 }
                 
             }
